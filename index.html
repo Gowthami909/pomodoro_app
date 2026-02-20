@@ -1,0 +1,71 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Productivity App</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Pomodoro Dashboard</h1>
+  <button id="highContrastToggle">High Contrast</button>
+</header>
+
+<main class="dashboard">
+
+  <!-- TIMER SECTION -->
+  <section class="timer-section">
+    <h2>Timer</h2>
+    <div id="timerDisplay">25:00</div>
+    <div class="progress-container">
+      <div id="progressBar"></div>
+    </div>
+
+    <div class="timer-buttons">
+      <button onclick="setMode('focus')">Focus</button>
+      <button onclick="setMode('short')">Short Break</button>
+      <button onclick="setMode('long')">Long Break</button>
+    </div>
+
+    <div class="timer-controls">
+      <button onclick="startTimer()">Start</button>
+      <button onclick="pauseTimer()">Pause</button>
+      <button onclick="resetTimer()">Reset</button>
+    </div>
+  </section>
+
+  <!-- TASK SECTION -->
+  <section class="task-section">
+    <h2>Tasks</h2>
+
+    <form id="taskForm">
+      <input type="text" id="taskName" placeholder="Task name" required>
+      <input type="date" id="taskDeadline">
+      <select id="taskPriority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+
+    <ul id="taskList"></ul>
+  </section>
+
+  <!-- REPORT SECTION -->
+  <section class="report-section">
+    <h2>Reports</h2>
+    <p>Completed Sessions: <span id="sessionCount">0</span></p>
+    <p>Tasks Completed: <span id="taskCompletedCount">0</span></p>
+    <p>Total Focus Time (mins): <span id="focusTime">0</span></p>
+
+    <canvas id="reportChart"></canvas>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
